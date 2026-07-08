@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>📋 Gestor de Tareas</h1>
+
+        <!-- Formulario para agregar una tarea (reemplaza al input() de la Etapa 1) -->
+        <form action="{{ url_for('agregar') }}" method="POST" class="form-agregar">
+            <input type="text" name="nombre" placeholder="Nueva tarea..." required>
+            <button type="submit">Agregar</button>
+        </form>
+
+        <!-- Bucle for con Jinja2: reemplaza al for i, tarea in enumerate(tareas) -->
+        {% if tareas %}
+        <ul class="lista-tareas">
+            {% for tarea in tareas %}
+                <li class="tarea {% if tarea.completada %}completada{% else %}pendiente{% endif %}">
+                    <span class="numero">{{ loop.index }}.</span>
+                    <span class="nombre-tarea">{{ tarea.nombre }}</span>
+
+                    <!-- Condicional if/else con Jinja2 -->
+                    {% if tarea.completada %}
+                        <span class="estado">✔ Completada</span>
+                    {% else %}
+                        <span class="estado">■ Pendiente</span>
+                        <a class="btn completar" href="{{ url_for('completar', numero=loop.index) }}">Completar</a>
+                    {% endif %}
+
+                    <a class="btn eliminar" href="{{ url_for('eliminar', numero=loop.index) }}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p class="vacio">La lista está vacía.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

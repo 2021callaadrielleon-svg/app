@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.contenedor {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 420px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.form-agregar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-agregar input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.form-agregar button {
+    background-color: #2c7be5;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.lista-tareas {
+    list-style: none;
+    padding: 0;
+}
+
+.tarea {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+/* Estilo distinto para tareas pendientes */
+.tarea.pendiente {
+    background-color: #fff3cd;
+    border-left: 5px solid #e6b800;
+}
+
+/* Estilo distinto para tareas completadas */
+.tarea.completada {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    text-decoration: line-through;
+    color: #555;
+}
+
+.numero {
+    font-weight: bold;
+}
+
+.nombre-tarea {
+    flex: 1;
+}
+
+.estado {
+    font-size: 0.85em;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn.completar {
+    background-color: #28a745;
+}
+
+.btn.eliminar {
+    background-color: #dc3545;
+}
+
+.vacio {
+    text-align: center;
+    color: #888;
+}
