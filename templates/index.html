@@ -1,0 +1,11 @@
+📋 Gestor de Tareas
+Nueva tarea...
+ Agregar
+{% if tareas %}
+{% for tarea in tareas %}
+{{ loop.index }}. {{ tarea.nombre }} {% if tarea.completada %} ✔ Completada {% else %} ■ Pendiente Completar {% endif %} Eliminar
+{% endfor %}
+{% else %}
+La lista está vacía.
+
+{% endif %}
